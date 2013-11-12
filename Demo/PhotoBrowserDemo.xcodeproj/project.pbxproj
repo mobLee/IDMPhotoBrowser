@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3305049D659F1C21858A1B87 /* MyPhotoBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = 33050DC0DB6ED940258B4A9B /* MyPhotoBrowser.m */; };
 		4C6F979214AF734900F8389A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C6F979114AF734900F8389A /* UIKit.framework */; };
 		4C6F979414AF734900F8389A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C6F979314AF734900F8389A /* Foundation.framework */; };
 		4C6F979614AF734900F8389A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C6F979514AF734900F8389A /* CoreGraphics.framework */; };
@@ -76,6 +77,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3305030499B254A813694CE9 /* MyPhotoBrowser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyPhotoBrowser.h; sourceTree = "<group>"; };
+		33050DC0DB6ED940258B4A9B /* MyPhotoBrowser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyPhotoBrowser.m; sourceTree = "<group>"; };
 		4C6F978D14AF734900F8389A /* PhotoBrowserDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PhotoBrowserDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4C6F979114AF734900F8389A /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		4C6F979314AF734900F8389A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -248,6 +251,8 @@
 			children = (
 				D150527116F7B044002BBD4F /* AppDelegate */,
 				D150527216F7B04B002BBD4F /* Menu */,
+				33050DC0DB6ED940258B4A9B /* MyPhotoBrowser.m */,
+				3305030499B254A813694CE9 /* MyPhotoBrowser.h */,
 			);
 			path = PhotoBrowserDemo;
 			sourceTree = "<group>";
@@ -563,6 +568,7 @@
 				D11CD1E7180C353F009320DD /* UIImageView+AFNetworking.m in Sources */,
 				D19D827717E8DDEC00A5859E /* DCStatusBarOverlay.m in Sources */,
 				D11CD1AC180C353F009320DD /* AFURLResponseSerialization.m in Sources */,
+				3305049D659F1C21858A1B87 /* MyPhotoBrowser.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -610,7 +616,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -639,7 +645,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -655,7 +661,7 @@
 				GCC_PREFIX_HEADER = "PhotoBrowserDemo/PhotoBrowserDemo-Prefix.pch";
 				GCC_THUMB_SUPPORT = NO;
 				INFOPLIST_FILE = "PhotoBrowserDemo/PhotoBrowserDemo-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "../**";
@@ -671,7 +677,7 @@
 				GCC_PREFIX_HEADER = "PhotoBrowserDemo/PhotoBrowserDemo-Prefix.pch";
 				GCC_THUMB_SUPPORT = NO;
 				INFOPLIST_FILE = "PhotoBrowserDemo/PhotoBrowserDemo-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "../**";

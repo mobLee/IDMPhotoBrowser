@@ -28,7 +28,13 @@
 // Properties
 @property (nonatomic, strong) id <IDMPhotoBrowserDelegate> delegate;
 
-// Toolbar customization
+// Global
+@property (nonatomic) BOOL autoHide;
+
+//Top Toolbar customization
+@property (nonatomic) BOOL displayTopToolbar;
+
+//Bottom Toolbar customization
 @property (nonatomic) BOOL displayToolbar;
 @property (nonatomic) BOOL displayCounterLabel;
 @property (nonatomic) BOOL displayArrowButton;
@@ -71,6 +77,17 @@
 
 // Get IDMPhoto at index
 - (id<IDMPhoto>)photoAtIndex:(NSUInteger)index;
+
+// Customization Top toolbar item
+- (void)addTopToolBarItem:(UIBarButtonItem *)item atPosition:(NSInteger)position;
+- (void)addTopToolBarItem:(UIBarButtonItem *)item;
+- (void)setTopToolBarItems:(NSArray *)items;
+
+// Customization toolbar item
+- (void)addToolBarItem:(UIBarButtonItem *)item atPosition:(NSInteger)position;
+- (void)addToolBarItem:(UIBarButtonItem *)item;
+- (void)setToolBarItems:(NSArray *)items;
+
 
 // Change Sender View
 //- (void)setSenderViewForAnimation:(UIView*)senderView;
