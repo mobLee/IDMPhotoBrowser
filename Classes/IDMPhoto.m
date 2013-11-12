@@ -174,7 +174,7 @@ caption = _caption;
 
 #pragma mark - Async Loading
 
-/*- (UIImage *)decodedImageWithImage:(UIImage *)image {
+- (UIImage *)decodedImageWithImage:(UIImage *)image {
     CGImageRef imageRef = image.CGImage;
     // System only supports RGB, set explicitly and prevent context error
     // if the downloaded image is not the supported format
@@ -204,9 +204,9 @@ caption = _caption;
     UIImage *decompressedImage = [[UIImage alloc] initWithCGImage:decompressedImageRef];
     CGImageRelease(decompressedImageRef);
     return decompressedImage;
-}*/
+}
 
-- (UIImage *)decodedImageWithImage:(UIImage *)image {
+/*- (UIImage *)decodedImageWithImage:(UIImage *)image {
     if (image.images)
     {
         // Do not decode animated images
@@ -264,7 +264,7 @@ caption = _caption;
     UIImage *decompressedImage = [UIImage imageWithCGImage:decompressedImageRef scale:image.scale orientation:image.imageOrientation];
     CGImageRelease(decompressedImageRef);
     return decompressedImage;
-}
+}*/
 
 // Called in background
 // Load image in background from local file

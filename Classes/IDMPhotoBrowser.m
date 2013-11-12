@@ -6,6 +6,7 @@
 //  Copyright 2010 d3i. All rights reserved.
 //
 
+#import <QuartzCore/QuartzCore.h>
 #import "IDMPhotoBrowser.h"
 #import "IDMZoomingScrollView.h"
 #import "SVProgressHUD.h"
@@ -169,8 +170,10 @@
 		_senderViewForAnimation = nil;
 		_scaleImage = nil;
 
-		if ([self respondsToSelector:@selector(automaticallyAdjustsScrollViewInsets)])
+#if __IPHONE_OS_VERSION_MAX_ALLOWED >= 70000
+        if ([self respondsToSelector:@selector(automaticallyAdjustsScrollViewInsets)])
 			self.automaticallyAdjustsScrollViewInsets = NO;
+#endif
 
 		_applicationWindow = [[[UIApplication sharedApplication] delegate] window];
 		_applicationRootViewController = [_applicationWindow rootViewController];
@@ -538,9 +541,12 @@
 	if (!_doneButton) {
 		// Close Button
 		UIButton *doneBarButton = [UIButton buttonWithType:UIButtonTypeCustom];
+
+#if __IPHONE_OS_VERSION_MAX_ALLOWED >= 70000
 		doneBarButton.layer.cornerRadius = 3.0f;
 		doneBarButton.layer.borderColor = [UIColor colorWithWhite:0.9 alpha:0.9].CGColor;
 		doneBarButton.layer.borderWidth = 1.0f;
+#endif
 		[doneBarButton setBackgroundColor:[UIColor colorWithWhite:0.1 alpha:0.5]];
 		[doneBarButton setTitleColor:[UIColor colorWithWhite:0.9 alpha:0.9] forState:UIControlStateNormal];
 		[doneBarButton setTitleColor:[UIColor colorWithWhite:0.9 alpha:0.9] forState:UIControlStateHighlighted];
@@ -614,8 +620,6 @@
 	_pagingScrollView.backgroundColor = [UIColor clearColor];
 	_pagingScrollView.contentSize = [self contentSizeForPagingScrollView];
 	[self.view addSubview:_pagingScrollView];
-
-	UIInterfaceOrientation currentOrientation = [UIApplication sharedApplication].statusBarOrientation;
 
 	//Add done button to Top Toolbar
 	if (_displayDoneButton) {
@@ -764,8 +768,6 @@
 		// Done button
 		_doneButton.frame = [self frameForDoneButtonAtOrientation:self.interfaceOrientation];
 	}*/
-
-	UIInterfaceOrientation currentOrientation = [UIApplication sharedApplication].statusBarOrientation;
 
 	// Toolbar
 	self.toolbar.frame = [self frameForToolbarAtOrientation:self.interfaceOrientation];
