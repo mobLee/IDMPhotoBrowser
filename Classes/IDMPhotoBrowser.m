@@ -542,16 +542,22 @@
 		// Close Button
 		UIButton *doneBarButton = [UIButton buttonWithType:UIButtonTypeCustom];
 
+		if (_doneButtonImage == nil) {
 #if __IPHONE_OS_VERSION_MAX_ALLOWED >= 70000
-		doneBarButton.layer.cornerRadius = 3.0f;
-		doneBarButton.layer.borderColor = [UIColor colorWithWhite:0.9 alpha:0.9].CGColor;
-		doneBarButton.layer.borderWidth = 1.0f;
+				doneBarButton.layer.cornerRadius = 3.0f;
+				doneBarButton.layer.borderColor = [UIColor colorWithWhite:0.9 alpha:0.9].CGColor;
+				doneBarButton.layer.borderWidth = 1.0f;
 #endif
-		[doneBarButton setBackgroundColor:[UIColor colorWithWhite:0.1 alpha:0.5]];
-		[doneBarButton setTitleColor:[UIColor colorWithWhite:0.9 alpha:0.9] forState:UIControlStateNormal];
-		[doneBarButton setTitleColor:[UIColor colorWithWhite:0.9 alpha:0.9] forState:UIControlStateHighlighted];
-		[doneBarButton setTitle:NSLocalizedString(@"Done", nil) forState:UIControlStateNormal];
-		[doneBarButton.titleLabel setFont:[UIFont boldSystemFontOfSize:11.0f]];
+			[doneBarButton setBackgroundColor:[UIColor colorWithWhite:0.1 alpha:0.5]];
+			[doneBarButton setTitleColor:[UIColor colorWithWhite:0.9 alpha:0.9] forState:UIControlStateNormal];
+			[doneBarButton setTitleColor:[UIColor colorWithWhite:0.9 alpha:0.9] forState:UIControlStateHighlighted];
+			[doneBarButton setTitle:NSLocalizedString(@"Done", nil) forState:UIControlStateNormal];
+			[doneBarButton.titleLabel setFont:[UIFont boldSystemFontOfSize:11.0f]];
+		} else {
+			[doneBarButton setImage:_doneButtonImage forState:UIControlStateNormal];
+			[doneBarButton setImage:_doneButtonImage forState:UIControlStateHighlighted];
+		}
+
 		[doneBarButton addTarget:self action:@selector(doneButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
 		doneBarButton.frame = [self frameForDoneButtonAtOrientation:self.interfaceOrientation];
 		_doneButton = [[UIBarButtonItem alloc] initWithCustomView:doneBarButton];
@@ -621,13 +627,6 @@
 	_pagingScrollView.contentSize = [self contentSizeForPagingScrollView];
 	[self.view addSubview:_pagingScrollView];
 
-	//Add done button to Top Toolbar
-	if (_displayDoneButton) {
-		UIBarButtonItem *flexSpace = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:self action:nil];
-		[self addTopToolBarItem:flexSpace];
-		[self addTopToolBarItem:self.doneButton];
-	}
-
 	UIImage *leftButtonImage = (_leftArrowImage == nil) ?
 			[UIImage imageNamed:@"IDMPhotoBrowser.bundle/images/IDMPhotoBrowser_arrowLeft.png"] : _leftArrowImage;
 	UIImage *rightButtonImage = (_rightArrowImage == nil) ?
@@ -691,6 +690,13 @@
 
 	// Super
 	[super viewWillAppear:animated];
+
+	//Add done button to Top Toolbar
+	if (_displayDoneButton) {
+		UIBarButtonItem *flexSpace = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:self action:nil];
+		[self addTopToolBarItem:flexSpace];
+		[self addTopToolBarItem:self.doneButton];
+	}
 
 	// Status Bar
 	/*if (self.wantsFullScreenLayout && UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
