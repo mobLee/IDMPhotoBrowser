@@ -78,6 +78,10 @@
 // Get IDMPhoto at index
 - (id<IDMPhoto>)photoAtIndex:(NSUInteger)index;
 
+// Dismiss Photo Browser
+- (void)dismissPhotoBrowser;
+- (void)dismissPhotoBrowser:(BOOL)animated;
+
 // Customization Top toolbar item
 - (void)addTopToolBarItem:(UIBarButtonItem *)item atPosition:(NSInteger)position;
 - (void)addTopToolBarItem:(UIBarButtonItem *)item;

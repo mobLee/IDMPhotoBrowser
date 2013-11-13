@@ -1424,6 +1424,19 @@
 }
 
 
+- (void)dismissPhotoBrowser
+{
+	[self dismissPhotoBrowser:YES];
+}
+
+
+- (void)dismissPhotoBrowser:(BOOL)animated
+{
+	[self prepareForClosePhotoBrowser];
+	[self dismissPhotoBrowserAnimated:animated];
+}
+
+
 #pragma mark - Properties
 
 - (void)setInitialPageIndex:(NSUInteger)index
@@ -1448,8 +1461,7 @@
 	}
 	else {
 		_senderViewForAnimation.hidden = NO;
-		[self prepareForClosePhotoBrowser];
-		[self dismissPhotoBrowserAnimated:YES];
+		[self dismissPhotoBrowser];
 	}
 }
 
